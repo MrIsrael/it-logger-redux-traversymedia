@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { Fragment, useEffect } from 'react';
+import SearchBar from "./components/layout/SearchBar";
+import Logs from "./components/logs/Logs";
+
+import 'materialize-css/dist/css/materialize.min.css';
+import M from 'materialize-css/dist/js/materialize.min.js';
 import './App.css';
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    // Auto-inicialización de Materialize JS, usando el Hook 'useEffect', emulando a la antigua lifecycle function ComponentDidMount():
+    M.AutoInit();
+  });
+
   return (
-    <div>
-      IT logger con Redux
-    </div>
+    <Fragment>
+      <SearchBar />
+      <div className="container">
+        <Logs />
+      </div>
+    </Fragment>
   );
-}
+};
 
 export default App;
