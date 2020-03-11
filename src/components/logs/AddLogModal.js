@@ -1,16 +1,28 @@
 import React, { useState } from 'react';      // Este componente será un formulario, por eso necesita un 'component state' --> uso del hook useState
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { addLog } from "../../actions/logActions";
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-const AddLogModal = () => {
+const AddLogModal = ({ addLog }) => {
   const [message, setMessage] = useState('');         // El estado del componente contiene un mensaje y un método para definir ese mensaje
   const [attention, setAttention] = useState(false);  // (setMessage). Ambos son "tomados" del hook useState, que define el valor inicial para
   const [tech, setTech] = useState('');               // "message" como vacío ('').
 
   const onSubmit = () => {
     if (message === '' || tech === '') {
-      M.toast({ html: 'Please enter a message and tech' });
+      M.toast({ html: 'Please enter a message and tech' });     // Popup de Materialize
     } else {
-      console.log(message, tech, attention);
+      const newLog = {
+        message,                                                // Igual que = message: message
+        attention,
+        tech,
+        date: new Date()
+      };
+
+      addLog(newLog);                                           // Implementación de la Redux Action en este componente
+
+      M.toast({ html: `Log added by ${tech}` });                // Popup dinámico de Materialize
 
       // Clear fields
       setMessage('');
@@ -81,9 +93,13 @@ const AddLogModal = () => {
   );
 };
 
+AddLogModal.propTypes = {
+  addLog: PropTypes.func.isRequired
+};
+
 const modalStyle = {
   width: '75%',
   height: '75%'
 };
 
-export default AddLogModal;
+export default connect(null, { addLog })(AddLogModal);

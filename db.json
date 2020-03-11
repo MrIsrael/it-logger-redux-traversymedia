@@ -1,25 +1,25 @@
 {
   "logs": [
     {
-      "id": 1,
-      "message": "Changed hard drive on workstation 005",
+      "message": "Tarjeta de red cambiada en workstation 031",
       "attention": false,
-      "date": "03-02-2020",
-      "tech": "Sam Smith"
+      "tech": "John Doe",
+      "date": "2020-03-10T20:52:45.605Z",
+      "id": 1
     },
     {
-      "id": 2,
-      "message": "Workstation 007 not posting",
+      "message": "Aviso: \"Virus infectó carpeta System32\"",
       "attention": true,
-      "date": "05-02-2020",
-      "tech": "John Doe"
+      "tech": "Sam Smith",
+      "date": "2020-03-10T20:53:31.326Z",
+      "id": 2
     },
     {
-      "id": 3,
-      "message": "Changed memory on workstation 223",
-      "attention": false,
-      "date": "07-02-2020",
-      "tech": "Pepito Perez"
+      "message": "Red inalámbrica para guests caída",
+      "attention": true,
+      "tech": "Pepito Perez",
+      "date": "2020-03-10T20:55:44.425Z",
+      "id": 3
     }
   ],
   "techs": [
