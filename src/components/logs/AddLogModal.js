@@ -1,4 +1,5 @@
 import React, { useState } from 'react';      // Este componente será un formulario, por eso necesita un 'component state' --> uso del hook useState
+import TechSelectOptions from "../techs/TechSelectOptions";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addLog } from "../../actions/logActions";
@@ -59,9 +60,7 @@ const AddLogModal = ({ addLog }) => {
               onChange={event => setTech(event.target.value)}
             >
               <option value='' disabled>Select technician</option>
-              <option value='Sam Smith'>Sam Smith</option>
-              <option value='John Doe'>John Doe</option>
-              <option value='Pepito Perez'>Pepito Perez</option>
+              <TechSelectOptions />
             </select>
           </div>
         </div>
@@ -99,7 +98,7 @@ AddLogModal.propTypes = {
 
 const modalStyle = {
   width: '75%',
-  height: '75%'
+  height: '50%'
 };
 
 export default connect(null, { addLog })(AddLogModal);

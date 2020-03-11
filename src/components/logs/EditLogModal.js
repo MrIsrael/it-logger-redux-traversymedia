@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';      // Este componente será un formulario, por eso necesita un 'component state' --> uso del hook useState
+import TechSelectOptions from "../techs/TechSelectOptions";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import M from 'materialize-css/dist/js/materialize.min.js';
@@ -66,9 +67,7 @@ const EditLogModal = ({ current, updateLog }) => {
                 onChange={event => setTech(event.target.value)}
               >
                 <option value='' disabled>Select technician</option>
-                <option value='Sam Smith'>Sam Smith</option>
-                <option value='John Doe'>John Doe</option>
-                <option value='Pepito Perez'>Pepito Perez</option>
+                <TechSelectOptions />
               </select>
             </div>
           </div>
@@ -107,7 +106,7 @@ EditLogModal.propTypes = {
 
 const modalStyle = {
   width: '75%',
-  height: '75%'
+  height: '50%'
 };
 
 const mapStateToProps = (state) => ({

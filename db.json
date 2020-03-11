@@ -4,8 +4,8 @@
       "id": 3,
       "message": "Red inalámbrica para guests ya arreglada",
       "attention": false,
-      "tech": "John Doe",
-      "date": "2020-03-11T16:48:39.625Z"
+      "tech": "Pacho Benavidez",
+      "date": "2020-03-11T23:45:53.998Z"
     },
     {
       "message": "MacBook Air desconfigurado",
@@ -15,25 +15,18 @@
       "id": 4
     },
     {
+      "id": 5,
       "message": "Limpieza equipo Dell Optiplex 123",
       "attention": false,
-      "tech": "Sam Smith",
-      "date": "2020-03-11T16:49:39.738Z",
-      "id": 5
+      "tech": "Albeiro Carabali",
+      "date": "2020-03-11T23:45:40.612Z"
     },
     {
-      "id": 6,
-      "message": "Servidor desinfectado de virus",
-      "attention": false,
-      "tech": "Sam Smith",
-      "date": "2020-03-11T20:41:39.374Z"
-    },
-    {
-      "message": "Pacho se tiró el PC",
+      "id": 7,
+      "message": "Pacho se tiró el PC 65",
       "attention": true,
       "tech": "Pepito Perez",
-      "date": "2020-03-11T20:46:19.255Z",
-      "id": 7
+      "date": "2020-03-11T20:49:38.415Z"
     }
   ],
   "techs": [
