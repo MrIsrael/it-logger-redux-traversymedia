@@ -1,5 +1,15 @@
 // Las Actions generalmente despachan Types al Reducer, pero con el middleware Thunk, pueden despachar también FUNCIONES
-import { GET_LOGS, SET_LOADING, LOGS_ERROR, ADD_LOG, DELETE_LOG, UPDATE_LOG, SET_CURRENT, CLEAR_CURRENT } from './types';
+import {
+  GET_LOGS,
+  SET_LOADING,
+  LOGS_ERROR,
+  ADD_LOG,
+  DELETE_LOG,
+  UPDATE_LOG,
+  SEARCH_LOGS,
+  SET_CURRENT,
+  CLEAR_CURRENT
+} from './types';
 
 // Ejemplo de dispacho de una FUNCIÓN al Reducer, desde la Action (este archivo), hacia el Reducer, gracias a Redux Thunk:
 // (la función dentro del Action puede despachar 'dispatch' hacia el Reducer un Tipo 'type' y un Contenido 'payload').
@@ -97,7 +107,7 @@ export const updateLog = (log) => async dispatch => {
       method: 'PUT',
       body: JSON.stringify(log),
       headers: {
-        'Content-Type': 'application-json'
+        'Content-Type': 'application/json'
       }
     });
     const data = await response.json();
@@ -107,6 +117,26 @@ export const updateLog = (log) => async dispatch => {
       payload: data
     });
 // Si hay algún error en la recepción de datos, ejecutar el código dentro de 'catch':
+  } catch (error) {
+    dispatch({
+      type: LOGS_ERROR,
+      payload: error.response.data
+    });
+  }
+};
+
+// Search server logs:
+export const searchLogs = (text) => async dispatch => {
+  try {
+    setLoading();
+
+    const response = await fetch(`/logs?q=${text}`);    // Query parameter para ingresar texto dinámicamente en la ruta de búsqueda
+    const data = await response.json();
+
+    dispatch({
+      type: SEARCH_LOGS,
+      payload: data
+    });
   } catch (error) {
     dispatch({
       type: LOGS_ERROR,

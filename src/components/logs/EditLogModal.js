@@ -16,12 +16,23 @@ const EditLogModal = ({ current, updateLog }) => {
       setAttention(current.attention);
       setTech(current.tech);
     }
-  }, [current]);
+  }, [current]);                                          // Para qué se debe incluir esta dependencia, como parámetro de useEffect?
 
   const onSubmit = () => {
     if (message === '' || tech === '') {
       M.toast({ html: 'Please enter a message and tech' });
     } else {
+      const updLog = {
+        id: current.id,
+        message,
+        attention,
+        tech,
+        date: new Date()                                        // Date() es una función JavaScript ordinaria, no se importó en ningún paquete npm.
+      };
+
+      updateLog(updLog);                                        // Implementación de la Redux Action en este componente
+
+      M.toast({ html: `Log updated by ${tech}` });              // Popup dinámico de Materialize
 
       // Clear fields
       setMessage('');
@@ -38,10 +49,10 @@ const EditLogModal = ({ current, updateLog }) => {
           <div className='row'>
             <div className='input-field'>
               <input
-                  type='text'
-                  name='message'
-                  value={message}
-                  onChange={event => setMessage(event.target.value)}
+                type='text'
+                name='message'
+                value={message}
+                onChange={event => setMessage(event.target.value)}
               />
             </div>
           </div>
@@ -49,10 +60,10 @@ const EditLogModal = ({ current, updateLog }) => {
           <div className='row'>
             <div className='input-field'>
               <select
-                  name='tech'
-                  value={tech}
-                  className='browser-default'
-                  onChange={event => setTech(event.target.value)}
+                name='tech'
+                value={tech}
+                className='browser-default'
+                onChange={event => setTech(event.target.value)}
               >
                 <option value='' disabled>Select technician</option>
                 <option value='Sam Smith'>Sam Smith</option>
@@ -67,11 +78,11 @@ const EditLogModal = ({ current, updateLog }) => {
               <p>
                 <label>
                   <input
-                      type='checkbox'
-                      className='filled-in'
-                      checked={attention}
-                      value={attention}
-                      onChange={event => setAttention(!attention)}
+                    type='checkbox'
+                    className='filled-in'
+                    checked={attention}
+                    value={attention}
+                    onChange={event => setAttention(!attention)}
                   />
                   <span>Needs Attention</span>
                 </label>
@@ -90,7 +101,7 @@ const EditLogModal = ({ current, updateLog }) => {
 };
 
 EditLogModal.propTypes = {
-  current: PropTypes.object.isRequired,
+//  current: PropTypes.object.isRequired,
   updateLog: PropTypes.func.isRequired
 };
 

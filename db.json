@@ -1,25 +1,39 @@
 {
   "logs": [
     {
-      "message": "Tarjeta de red cambiada en workstation 031",
+      "id": 3,
+      "message": "Red inalámbrica para guests ya arreglada",
       "attention": false,
       "tech": "John Doe",
-      "date": "2020-03-10T20:52:45.605Z",
-      "id": 1
+      "date": "2020-03-11T16:48:39.625Z"
     },
     {
-      "message": "Aviso: \"Virus infectó carpeta System32\"",
+      "message": "MacBook Air desconfigurado",
       "attention": true,
-      "tech": "Sam Smith",
-      "date": "2020-03-10T20:53:31.326Z",
-      "id": 2
+      "tech": "John Doe",
+      "date": "2020-03-11T16:49:19.287Z",
+      "id": 4
     },
     {
-      "message": "Red inalámbrica para guests caída",
+      "message": "Limpieza equipo Dell Optiplex 123",
+      "attention": false,
+      "tech": "Sam Smith",
+      "date": "2020-03-11T16:49:39.738Z",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "message": "Servidor desinfectado de virus",
+      "attention": false,
+      "tech": "Sam Smith",
+      "date": "2020-03-11T20:41:39.374Z"
+    },
+    {
+      "message": "Pacho se tiró el PC",
       "attention": true,
       "tech": "Pepito Perez",
-      "date": "2020-03-10T20:55:44.425Z",
-      "id": 3
+      "date": "2020-03-11T20:46:19.255Z",
+      "id": 7
     }
   ],
   "techs": [
